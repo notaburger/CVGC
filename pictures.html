@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+
+  <title>big D's CVGC</title>
+
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <meta name="author" content="big D" />
+  <meta name="description" content="The Home of the Classic Video Game Challenge" />
+  <meta name="keywords" content="notaburger, bigd, cvgc, classic video game challenge" />
+  <meta name="robots" content="index, follow, noarchive" />
+  <meta name="googlebot" content="noarchive" />
+
+  <script src="scripts/jquery.tools.min.js"></script>
+  <!--<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>-->
+	
+  <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen, projection, tv " />
+  <link rel="stylesheet" type="text/css" href="css/html.css" media="screen, projection, tv " />
+
+  <!-- CSS specific to current theme -->
+  <link rel="stylesheet" type="text/css" href="css/light.css" title="light" media="screen, projection, tv " />
+  <link rel="alternate stylesheet" type="text/css" href="css/dark.css"  title="dark"  media="screen, projection, tv " />
+  
+  <!-- standalone page styling (can be removed) 
+  <link rel="stylesheet" type="text/css" href="css/standalone.css" />	-->
+  <link rel="stylesheet" type="text/css" href="css/scrollable-horizontal.css" />
+  <link rel="stylesheet" type="text/css" href="css/scrollable-buttons.css" />
+
+</head>
+
+<body>
+
+<!-- #content: holds all except site footer - causes footer to stick to bottom -->
+<div id="content">
+
+  <!-- #header: holds the logo and top links -->
+  <div id="header" class="width">
+
+    <img src="images/logo.gif" alt="Your logo goes here"/>
+
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About the CVGC</a></li>
+	  <li><a href="chat.html">Chat</a></li>
+      <li><a href="contact.html" class="last">Contact</a></li>
+    </ul>
+
+  </div>
+  <!-- #header end -->
+
+
+  <!-- #headerImg: holds the main header image or flash -->
+  <div id="headerImg" class="width"></div>
+
+
+
+  <!-- #menu: the main large box site menu -->
+  <div id="menu" class="width">
+
+    <ul>
+      <li>
+        <a href="cvgc2012.html" onfocus="blur()">
+          <span class="title ">CVGC 2012</span>
+          <span class="desc">See here for all of the juicy details!</span>        </a>      </li>
+      <li>
+        <a href="pictures.html" class="forum" onfocus="blur()">
+          <span class="title ">Pictures</span>
+          <span class="desc style3">Relive CVGCs of the past</span>        </a>      </li>
+      <li>
+        <a href="historylesson.html" onfocus="blur()">
+          <span class="title ">Historical</span>
+          <span class="desc">Landfill of all of the old CVGC crap that no one cares about</span>
+        </a>
+      </li>
+      <li>
+        <a href="requests.html" onfocus="blur()">
+          <span class="title ">Open Requests</span>
+          <span class="desc">See here for ways that you can help keep this event going</span>
+        </a>
+      </li> 
+    </ul>
+
+  </div>
+  <!-- #menu end -->
+
+
+
+  <!-- #page: holds the page content -->
+  <div id="page">
+
+
+    <!-- #columns: holds the columns of the page -->
+    <div id="columns" class="widthPad">
+
+
+    <!-- Left column -->
+    <div class="floatLeft width100">
+
+      <h1><span class="dark">Pictures</span></h1>
+<div id="image_wrap">
+
+	<!-- Initially the image is a simple 1x1 pixel transparent GIF -->
+	<img src=".images/bg/blank.gif" width="50%" height="auto" />
+
+</div>
+
+
+<!-- HTML structures -->
+
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable">   
+   
+   <!-- root element for the items -->
+   <div class="items">
+   
+      <!-- 1-5 -->
+      <div>
+	     <img src="./images/pictures/1.png" width="auto" height="auto" />
+         <img src="./images/pictures/2.png" width="auto" height="auto" />
+         <img src="./images/pictures/3.png" width="auto" height="auto" />
+         <img src="./images/pictures/4.png" width="auto" height="auto" />
+         <img src="./images/pictures/5.png" width="auto" height="auto" />
+      </div>
+            
+	  <!-- 6-10 -->
+      <div>
+	     <img src="./images/pictures/6.png" width="auto" height="auto" />
+         <img src="./images/pictures/7.png" width="auto" height="auto" />
+         <img src="./images/pictures/8.png" width="auto" height="auto" />
+        <!-- <img src="./images/pictures/9.png" width="auto" height="auto" />
+         <img src="./images/pictures/10.png" width="auto" height="auto" />-->
+      </div>
+	  
+   </div>
+   
+</div>
+
+<!-- "next page" action -->
+<a class="next browse right"></a>
+
+<script>
+//$(function() {
+
+$(".scrollable").scrollable();
+
+$(".items img").click(function() {
+
+	// see if same thumb is being clicked
+	if ($(this).hasClass("active")) { return; }
+
+	// calclulate large image's URL based on the thumbnail URL (flickr specific)
+	var url = $(this).attr("src");
+	//.replace("_t", "")
+
+	// get handle to element that wraps the image and make it semi-transparent
+	var wrap = $("#image_wrap").fadeTo("medium", 0.5);
+
+	// the large image from www.flickr.com
+	var img = new Image();
+
+	// call this function after it's loaded
+	img.onload = function() {
+
+		// make wrapper fully visible
+		wrap.fadeTo("fast", 1);
+
+		// change the image
+		wrap.find("img").attr("src", url);
+
+	};
+
+	// begin loading the image from www.flickr.com
+	img.src = url;
+
+	// activate item
+	$(".items img").removeClass("active");
+	$(this).addClass("active");
+
+// when page loads simulate a "click" on the first image
+}).filter(":first").click();
+//});
+</script>
+	  </p>
+      <!-- End Post -->
+
+
+	<p></br></br></br></br></br></br></br></br></p>
+	<blockquote>
+	   <p>
+		    This site works best in any browser other than Internet Explorer.  If you're using IE to surf the web, don't plan on coming to the event.
+	   </p>
+	</blockquote>
+    </div>
+	<!-- Left column end -->
+
+    </div>
+    <!-- #columns end -->
+
+  </div>
+  <!-- #page end -->
+
+</div>
+<!-- #content end -->
+
+<!-- #footer: holds the site footer (logo and links) -->
+<div id="footer">
+
+  <!-- #bg: applies the site width and footer background -->
+  <div id="bg" class="width">
+
+    <img src="images/logo.gif" alt="Your logo goes here"/>
+
+    <ul>
+      <li><a href="sitemap.html">Sitemap</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html" class="last">Contact</a></li>
+	</ul>
+
+  </div>
+  <!-- #bg end -->
+
+</div>
+<!-- #footer end -->
+
+</body>
+
+</html>
