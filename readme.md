@@ -13,7 +13,7 @@
 	<meta name="keywords" content="notaburger, bigd, cvgc, classic video game challenge" />
 	<meta name="robots" content="index, follow, noarchive" />
 	<meta name="googlebot" content="noarchive" />
-	<!--<meta name=”viewport” content=”initial-scale=1.0&#8243; />-->
+	<!--<meta name=â€viewportâ€ content=â€initial-scale=1.0&#8243; />-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
 	<link rel="stylesheet" type="text/css" href="css/layout.css" media="screen, projection, tv " />
